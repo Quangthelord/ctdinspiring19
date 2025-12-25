@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTD Inspiring - Shape Your Signature</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Chakra+Petch:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --neon-cyan: #00f3ff;
+            --neon-blue: #0066ff;
+            --neon-purple: #bc13fe;
+            --deep-space: #050b14;
+            --glass-bg: rgba(17, 25, 40, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.125);
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: var(--deep-space);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6, .display-font {
+            font-family: 'Chakra Petch', sans-serif;
+        }
+
+        /* Animated Background Stars */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite linear;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0; transform: translateY(0); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-100vh); }
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #00f3ff 0%, #0066ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-text-purple {
+            background: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Custom List Bullets */
+        ul.tech-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul.tech-list > li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        ul.tech-list > li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--neon-cyan);
+            font-weight: bold;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0066ff; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f3ff;
+        }
+
+        /* Floating Animation */
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Background Stars -->
+    <div id="star-container" class="stars"></div>
+
+    <!-- Header / Navigation -->
+    <nav class="fixed w-full z-50 top-0 left-0 bg-[#050b14]/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/30">
+                        <i class="fa-solid fa-shuttle-space text-white text-lg"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg tracking-wider text-white display-font">CTD<span class="text-cyan-400">INSPIRING</span></span>
+                        <span class="text-[10px] text-cyan-200 tracking-widest uppercase opacity-80">Mùa 3</span>
+                    </div>
+                </div>
+                <div class="hidden lg:block">
+                    <div class="flex items-baseline space-x-6">
+                        <a href="#intro" class="hover:text-cyan-400 px-3 py-2 text-sm font-medium transition duration-300">Tổng quan</a>
+                        <a href="#phase1" class="hover:text-cyan-400 px-3 py-2 text-sm font-medium transition duration-300">GĐ1: Hoạch Định</a>
+                        <a href="#phase2" class="hover:text-cyan-400 px-3 py-2 text-sm font-medium transition duration-300">GĐ2: Thực Thi</a>
+                        <a href="#roadmap" class="hover:text-cyan-400 px-3 py-2 text-sm font-medium transition duration-300">Lộ trình</a>
+                    </div>
+                </div>
+                <div class="lg:hidden text-white cursor-pointer">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="intro" class="relative pt-32 pb-16 lg:pt-48 lg:pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <!-- Tags -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <span class="px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 backdrop-blur text-cyan-300 text-xs font-bold tracking-wider uppercase">
+                    #ShapeYourSignature
+                </span>
+                <span class="px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur text-purple-300 text-xs font-bold tracking-wider uppercase">
+                    Kỳ: 1/9
+                </span>
+                <span class="px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur text-blue-300 text-xs font-bold tracking-wider uppercase">
+                    23/12/2025
+                </span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                KHUNG QUẢN TRỊ <br/>
+                <span class="gradient-text">VÀ VẬN HÀNH DOANH NGHIỆP</span>
+            </h1>
+            
+            <div class="max-w-3xl mx-auto mb-10 text-lg md:text-xl text-gray-300 font-light leading-relaxed">
+                <p>Cuộc gặp gỡ với anh <strong>Lê Xuân</strong> chỉ cho những kinh nghiệm và nguyên tắc trong việc đặt mục tiêu, lên kế hoạch và quản lý vận hành một doanh nghiệp.</p>
+                <p class="mt-4 text-sm md:text-base text-gray-400 italic border-l-2 border-cyan-500 pl-4 text-left mx-auto max-w-2xl bg-white/5 p-4 rounded-r-lg">
+                    "Em sẽ xây dựng lại mô hình trên, áp dụng tuần tự và ghi nhận kết quả phát triển của dự án cá nhân của em."
+                </p>
+            </div>
+
+            <!-- Profiles -->
+            <div class="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12 items-center">
+                <!-- Inspirer -->
+                <div class="flex items-center gap-4 bg-white/5 px-6 py-3 rounded-2xl border border-white/10 hover:border-cyan-500/50 transition">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-700 to-cyan-500 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                        <i class="fa-solid fa-user-tie text-white"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-[10px] uppercase tracking-wider text-cyan-400 font-bold">Inspirer</div>
+                        <div class="font-bold text-lg text-white">Xuân Lê</div>
+                    </div>
+                </div>
+
+                <!-- Inspiree -->
+                <div class="flex items-center gap-4 bg-white/5 px-6 py-3 rounded-2xl border border-white/10 hover:border-purple-500/50 transition">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-700 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+                        <i class="fa-solid fa-user-astronaut text-white"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-[10px] uppercase tracking-wider text-purple-400 font-bold">Inspiree</div>
+                        <div class="font-bold text-lg text-white">Đào Nguyễn Phúc Quang</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decoration -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+    </header>
+
+    <!-- PHASE 1: STRATEGIC PLANNING -->
+    <section id="phase1" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16">
+                <div class="inline-block px-3 py-1 bg-cyan-900/30 text-cyan-400 rounded border border-cyan-800 text-xs font-bold mb-3 tracking-wider display-font">GIAI ĐOẠN 1</div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">HOẠCH ĐỊNH CHIẾN LƯỢC <span class="text-gray-500 text-2xl md:text-3xl font-light block md:inline md:ml-2">(Strategic Planning)</span></h2>
+                <p class="text-gray-400 max-w-3xl text-lg">
+                    Trong giai đoạn khởi tạo, doanh nghiệp cần xác định hệ thống mục tiêu nhất quán. Mọi mục tiêu phải tuân thủ tiêu chuẩn <strong class="text-white">SMART</strong> (Cụ thể, Đo lường được, Khả thi, Thực tế, Có thời hạn).
+                </p>
+            </div>
+
+            <!-- The 4 Pillars Grid -->
+            <div class="grid grid-cols-1 gap-12">
+                
+                <!-- Pillar 1: System Goals -->
+                <div class="glass-card p-8 md:p-10 relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 text-[10rem] text-white opacity-[0.03] display-font font-bold pointer-events-none">01</div>
+                    <div class="flex items-start gap-6 mb-8">
+                        <div class="w-14 h-14 rounded-xl bg-blue-600/20 border border-blue-500/50 flex items-center justify-center flex-shrink-0 text-blue-400 text-2xl">
+                            <i class="fa-solid fa-crosshairs"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Mục tiêu Hệ thống <span class="text-blue-400 text-lg font-normal block md:inline md:ml-2">(System Goals)</span></h3>
+                            <p class="text-gray-400 text-sm">Nhóm mục tiêu nền tảng, đóng vai trò định hướng trong các quyết định chiến lược.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Vision -->
+                        <div class="bg-black/20 p-6 rounded-lg border border-white/5">
+                            <h4 class="text-blue-300 font-bold mb-3 uppercase text-sm tracking-wide border-b border-blue-500/30 pb-2">Tầm nhìn Chiến lược (Strategic Vision)</h4>
+                            <p class="text-gray-300 text-sm mb-4">Xác định chính xác vị thế thị trường (Market Position) và quy mô mà doanh nghiệp muốn đạt được ở điểm đến cuối cùng. Đây là mục tiêu bất biến đóng vai trò như "Kim chỉ nam".</p>
+                            
+                            <div class="space-y-3">
+                                <div class="text-xs font-bold text-gray-500 uppercase">Cascading (Lộ trình chiến lược):</div>
+                                <div class="flex flex-col gap-2 text-sm">
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-20 text-xs font-bold text-blue-400">Dài hạn (>10 năm)</span>
+                                        <span class="text-gray-400">Định hình vị thế đầu ngành hoặc quy mô tổng thể.</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-20 text-xs font-bold text-cyan-400">Trung hạn (3-5 năm)</span>
+                                        <span class="text-gray-400">Chỉ tiêu chiếm lĩnh thị phần, mở rộng quy mô sản xuất/địa bàn.</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-20 text-xs font-bold text-white">Ngắn hạn (1 năm)</span>
+                                        <span class="text-gray-400">Mục tiêu doanh số, vận hành phục vụ mục tiêu trung hạn.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mission -->
+                        <div class="bg-black/20 p-6 rounded-lg border border-white/5">
+                            <h4 class="text-blue-300 font-bold mb-3 uppercase text-sm tracking-wide border-b border-blue-500/30 pb-2">Sứ mệnh (Mission Statement)</h4>
+                            <p class="text-gray-300 text-sm mb-4">Phạm vi kinh doanh và giá trị thực tế cam kết chuyển giao cho các bên hữu quan (Stakeholders).</p>
+                            <ul class="tech-list text-sm text-gray-400 space-y-2">
+                                <li><strong class="text-white">Khách hàng:</strong> Giải quyết vấn đề gì? Lợi ích vượt trội so với đối thủ?</li>
+                                <li><strong class="text-white">Nhân viên:</strong> Môi trường làm việc, thu nhập, lộ trình phát triển.</li>
+                                <li><strong class="text-white">Cổ đông:</strong> Hiệu quả vốn, tăng trưởng lợi nhuận bền vững.</li>
+                                <li><strong class="text-white">Xã hội:</strong> Tuân thủ pháp luật, đóng góp cộng đồng.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Finance -->
+                <div class="glass-card p-8 md:p-10 relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 text-[10rem] text-white opacity-[0.03] display-font font-bold pointer-events-none">02</div>
+                    <div class="flex items-start gap-6 mb-8">
+                        <div class="w-14 h-14 rounded-xl bg-green-600/20 border border-green-500/50 flex items-center justify-center flex-shrink-0 text-green-400 text-2xl">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Tài Chính & Vốn <span class="text-green-400 text-lg font-normal block md:inline md:ml-2">(Financial Goals & Capital)</span></h3>
+                            <p class="text-gray-400 text-sm">Hệ thống chỉ tiêu định lượng phản ánh "sức khỏe" thực tế. Cân bằng giữa <strong class="text-white">Khả năng sinh lời</strong> và <strong class="text-white">Tính thanh khoản</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Block 1 -->
+                        <div class="bg-black/20 p-5 rounded-lg border border-white/5">
+                            <h5 class="text-green-300 font-bold mb-3 text-sm flex items-center gap-2"><i class="fa-solid fa-wallet"></i> Hoạch định Nhu cầu Vốn</h5>
+                            <ul class="text-sm space-y-3 text-gray-400">
+                                <li>
+                                    <strong class="block text-white mb-1">Tổng mức đầu tư (Total Investment):</strong>
+                                    Bao gồm CAPEX (TSCĐ) + Net Working Capital (Vốn lưu động ròng để duy trì Burn rate).
+                                </li>
+                                <li>
+                                    <strong class="block text-white mb-1">Cơ cấu nguồn vốn:</strong>
+                                    Tỷ lệ Vốn chủ (Equity) vs Vốn vay (Debt). Tối ưu hóa chi phí vốn bình quân (WACC).
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Block 2 -->
+                        <div class="bg-black/20 p-5 rounded-lg border border-white/5">
+                            <h5 class="text-green-300 font-bold mb-3 text-sm flex items-center gap-2"><i class="fa-solid fa-file-invoice-dollar"></i> Chỉ số Hiệu suất (P&L)</h5>
+                            <ul class="text-sm space-y-3 text-gray-400">
+                                <li><strong class="text-white">Doanh thu:</strong> Dựa trên thị phần/công suất. Tách rõ dòng tiền định kỳ/một lần.</li>
+                                <li><strong class="text-white">Biên lợi nhuận gộp (Gross Margin):</strong> Hiệu quả sản xuất & COGS.</li>
+                                <li><strong class="text-white">Biên lợi nhuận ròng (Net Margin):</strong> Hiệu quả quản lý OPEX.</li>
+                                <li><strong class="text-white">EBITDA:</strong> Lợi nhuận KD thuần túy (trước thuế, lãi, khấu hao).</li>
+                                <li><strong class="text-white">Điểm hòa vốn (Break-even):</strong> Mốc sinh tử đầu tiên.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Block 3 -->
+                        <div class="bg-black/20 p-5 rounded-lg border border-white/5">
+                            <h5 class="text-green-300 font-bold mb-3 text-sm flex items-center gap-2"><i class="fa-solid fa-money-bill-transfer"></i> Dòng tiền & Thanh khoản</h5>
+                            <p class="text-xs text-gray-500 italic mb-2">"Lợi nhuận là ý niệm kế toán, tiền mặt là thực tế."</p>
+                            <ul class="text-sm space-y-3 text-gray-400">
+                                <li><strong class="text-white">Mục tiêu tối thượng:</strong> Dòng tiền hoạt động kinh doanh (Operating Cash Flow) dương.</li>
+                                <li>
+                                    <strong class="block text-white mb-1">Lộ trình dòng tiền:</strong>
+                                    - Ngắn hạn: Thanh toán nợ (Solvency).<br>
+                                    - Dài hạn: Tích lũy tái đầu tư (Reinvestment) & dự phòng.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Organization & HR -->
+                <div class="glass-card p-8 md:p-10 relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 text-[10rem] text-white opacity-[0.03] display-font font-bold pointer-events-none">03</div>
+                    <div class="flex items-start gap-6 mb-8">
+                        <div class="w-14 h-14 rounded-xl bg-purple-600/20 border border-purple-500/50 flex items-center justify-center flex-shrink-0 text-purple-400 text-2xl">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Tổ Chức & Nhân Sự <span class="text-purple-400 text-lg font-normal block md:inline md:ml-2">(Organizational & Human Capital)</span></h3>
+                            <p class="text-gray-400 text-sm">Chuyển dịch tư duy từ "quản lý nhân sự" sang "đầu tư vốn con người".</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div>
+                                <h5 class="text-purple-300 font-bold mb-2 text-sm uppercase">Hoạch định & Phát triển Vốn Nhân lực</h5>
+                                <ul class="tech-list text-sm text-gray-400 space-y-2">
+                                    <li><strong>Khung năng lực (ASK):</strong> Phẩm chất - Kỹ năng - Kiến thức. Xác định định biên nhân sự (Headcount).</li>
+                                    <li><strong>Tuyển dụng:</strong> Employer Branding. Chú trọng Culture Fit (phù hợp văn hóa).</li>
+                                    <li><strong>Giữ chân:</strong> Total Rewards (Lương, Thưởng, ESOP) gắn liền Pay for Performance.</li>
+                                    <li><strong>Succession Planning:</strong> Đội ngũ kế cận, triệt tiêu rủi ro "khoảng trống quyền lực".</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <div>
+                                <h5 class="text-purple-300 font-bold mb-2 text-sm uppercase">Kiến trúc Vận hành & Quản trị</h5>
+                                <ul class="tech-list text-sm text-gray-400 space-y-2">
+                                    <li><strong>Cơ cấu tổ chức:</strong> Thống nhất chỉ huy (Unity of Command) - 1 nhân viên chỉ có 1 sếp.</li>
+                                    <li><strong>Quy trình (SOPs):</strong> Giảm phụ thuộc vào "ngôi sao", đảm bảo chất lượng đồng nhất.</li>
+                                    <li><strong>Phối hợp liên chức năng:</strong> SLA nội bộ, xóa bỏ tư duy cục bộ (Silo mentality).</li>
+                                    <li><strong>Văn hóa Hiệu suất cao:</strong> Kỷ luật, minh bạch & trách nhiệm giải trình (Accountability).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 4: Personal Goals -->
+                <div class="glass-card p-6 md:p-8 flex items-center gap-6 border-l-4 border-l-orange-500">
+                    <div class="w-12 h-12 rounded-full bg-orange-600/20 flex items-center justify-center text-orange-400 text-xl flex-shrink-0">
+                        <i class="fa-solid fa-fingerprint"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-1">4. Mục tiêu Cá nhân (Founder's Objectives)</h3>
+                        <p class="text-gray-400 text-sm">Xác định sự tương thích giữa mục tiêu phát triển của doanh nghiệp và mong muốn cá nhân của chủ doanh nghiệp, đảm bảo động lực lãnh đạo bền vững.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PHASE 2: EXECUTION (4DX) -->
+    <section id="phase2" class="py-20 bg-black/40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 flex flex-col md:flex-row justify-between items-end gap-6">
+                <div>
+                    <div class="inline-block px-3 py-1 bg-blue-900/30 text-blue-400 rounded border border-blue-800 text-xs font-bold mb-3 tracking-wider display-font">GIAI ĐOẠN 2</div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">QUẢN TRỊ THỰC THI <span class="gradient-text-purple">(4DX)</span></h2>
+                    <p class="text-gray-400 max-w-2xl">
+                        Tối ưu hóa hiệu suất dựa trên <strong>Khung 4 Nguyên tắc Thực thi (4 Disciplines of Execution)</strong> kết hợp quy trình phân rã mục tiêu.
+                    </p>
+                </div>
+                <div class="text-8xl font-black text-white/5 display-font hidden md:block select-none">4DX</div>
+            </div>
+
+            <div class="space-y-8">
+                
+                <!-- Rule 1 -->
+                <div class="glass-card p-8 group hover:border-l-4 hover:border-l-cyan-400 transition-all">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 rounded-2xl bg-cyan-900/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center text-2xl font-bold display-font">#1</div>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">Tập trung vào Mục tiêu Tối quan trọng (WIG - Wildly Important Goal)</h3>
+                            <p class="text-gray-400 text-sm mb-4">Tránh dàn trải nguồn lực. Tại mỗi cấp độ, chỉ duy trì 1-2 mục tiêu WIG song song với hoạt động thường nhật (Whirlwind).</p>
+                            
+                            <div class="bg-cyan-900/10 border border-cyan-500/20 p-4 rounded-lg">
+                                <p class="text-xs text-cyan-300 font-bold uppercase mb-1">Cấu trúc định lượng bắt buộc:</p>
+                                <p class="text-white font-mono text-sm md:text-base">"Di chuyển chỉ số [Tên chỉ số] từ [Mức cơ sở X] đến [Mức mục tiêu Y] trước [Thời hạn Z]"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rule 2 -->
+                <div class="glass-card p-8 group hover:border-l-4 hover:border-l-blue-400 transition-all">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 rounded-2xl bg-blue-900/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-2xl font-bold display-font">#2</div>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">Hành động dựa trên Thước đo Dẫn dắt (Act on Lead Measures)</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                                <div class="bg-black/20 p-4 rounded-lg border border-red-500/20">
+                                    <h4 class="text-red-400 font-bold text-sm mb-1">Thước đo Tụt hậu (Lag Measures)</h4>
+                                    <p class="text-xs text-gray-400 mb-2">Ví dụ: Doanh thu, Lợi nhuận.</p>
+                                    <p class="text-sm text-gray-300">Kết quả cuối cùng. Mang tính lịch sử, không thể can thiệp khi đã có số liệu.</p>
+                                </div>
+                                <div class="bg-black/20 p-4 rounded-lg border border-green-500/20">
+                                    <h4 class="text-green-400 font-bold text-sm mb-1">Thước đo Dẫn dắt (Lead Measures)</h4>
+                                    <p class="text-xs text-gray-400 mb-2">Ví dụ: Số cuộc gọi/ngày, Số giờ đào tạo.</p>
+                                    <p class="text-sm text-gray-300">Hành động đầu vào. Có tính tiên đoán (Predictive) và chịu sự kiểm soát trực tiếp (Influenceable).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rule 3 -->
+                <div class="glass-card p-8 group hover:border-l-4 hover:border-l-purple-400 transition-all">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 rounded-2xl bg-purple-900/20 text-purple-400 border border-purple-500/30 flex items-center justify-center text-2xl font-bold display-font">#3</div>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">Duy trì Bảng điểm Hiệu suất (Keep a Compelling Scoreboard)</h3>
+                            <p class="text-gray-400 text-sm mb-4">Hệ thống Quản trị Trực quan (Visual Management). Bảng điểm cần đơn giản, trực quan.</p>
+                            
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <div class="flex items-center gap-3 text-sm text-gray-300">
+                                    <i class="fa-solid fa-stopwatch text-purple-400"></i>
+                                    <span>Quy tắc 5 giây: Nhìn vào biết ngay Thắng/Thua.</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-sm text-gray-300">
+                                    <i class="fa-solid fa-chart-area text-purple-400"></i>
+                                    <span>Hiển thị song song Lead & Lag measures.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rule 4 -->
+                <div class="glass-card p-8 group hover:border-l-4 hover:border-l-pink-400 transition-all">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 rounded-2xl bg-pink-900/20 text-pink-400 border border-pink-500/30 flex items-center justify-center text-2xl font-bold display-font">#4</div>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">Tạo nhịp điệu Trách nhiệm giải trình (Accountability)</h3>
+                            <p class="text-gray-400 text-sm mb-4">Tránh để kế hoạch bị lãng quên bởi sự vụ hàng ngày (Whirlwind).</p>
+                            
+                            <div class="bg-pink-900/10 border border-pink-500/20 p-5 rounded-lg">
+                                <h4 class="text-pink-300 font-bold text-sm mb-2 uppercase">Cơ chế họp WIG (Hàng tuần, 20-30 phút):</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex gap-2"><span class="font-bold text-white min-w-[80px]">Báo cáo:</span> <span class="text-gray-400">Đánh giá cam kết kỳ trước.</span></li>
+                                    <li class="flex gap-2"><span class="font-bold text-white min-w-[80px]">Rà soát:</span> <span class="text-gray-400">Phân tích tác động lên Bảng điểm, tìm điểm nghẽn (Bottlenecks).</span></li>
+                                    <li class="flex gap-2"><span class="font-bold text-white min-w-[80px]">Lập KH:</span> <span class="text-gray-400">Cam kết hành động cụ thể cho kỳ tới.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONCLUSION / ROADMAP -->
+    <section id="roadmap" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#050b14] to-[#0a1525] -z-10"></div>
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            
+            <i class="fa-solid fa-flag-checkered text-5xl text-cyan-400 mb-6 floating"></i>
+            <h2 class="text-3xl md:text-4xl font-bold mb-10 text-white">LỘ TRÌNH ÁP DỤNG DỰ ÁN CÁ NHÂN</h2>
+            
+            <div class="relative">
+                <!-- Line connecting steps -->
+                <div class="absolute top-1/2 left-0 w-full h-1 bg-cyan-900/50 -translate-y-1/2 hidden md:block rounded-full"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-6 relative z-10">
+                    
+                    <!-- Step 1 -->
+                    <div class="bg-[#050b14] p-4 rounded-xl border border-cyan-500/30 flex flex-col items-center hover:-translate-y-2 transition duration-300">
+                        <div class="w-10 h-10 rounded-full bg-cyan-500 text-black font-bold flex items-center justify-center mb-3 text-lg">1</div>
+                        <h4 class="text-cyan-300 font-bold text-sm uppercase mb-1">Thiết lập</h4>
+                        <p class="text-xs text-gray-500">Xác định 4 trụ cột mục tiêu</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-[#050b14] p-4 rounded-xl border border-cyan-500/30 flex flex-col items-center hover:-translate-y-2 transition duration-300">
+                        <div class="w-10 h-10 rounded-full bg-cyan-500 text-black font-bold flex items-center justify-center mb-3 text-lg">2</div>
+                        <h4 class="text-cyan-300 font-bold text-sm uppercase mb-1">Lựa chọn</h4>
+                        <p class="text-xs text-gray-500">Chọn 01 WIG khởi tạo</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-[#050b14] p-4 rounded-xl border border-cyan-500/30 flex flex-col items-center hover:-translate-y-2 transition duration-300">
+                        <div class="w-10 h-10 rounded-full bg-cyan-500 text-black font-bold flex items-center justify-center mb-3 text-lg">3</div>
+                        <h4 class="text-cyan-300 font-bold text-sm uppercase mb-1">Kế hoạch</h4>
+                        <p class="text-xs text-gray-500">Xác định Lead Measures</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="bg-[#050b14] p-4 rounded-xl border border-cyan-500/30 flex flex-col items-center hover:-translate-y-2 transition duration-300">
+                        <div class="w-10 h-10 rounded-full bg-cyan-500 text-black font-bold flex items-center justify-center mb-3 text-lg">4</div>
+                        <h4 class="text-cyan-300 font-bold text-sm uppercase mb-1">Đo lường</h4>
+                        <p class="text-xs text-gray-500">Theo dõi trên Bảng điểm</p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="bg-[#050b14] p-4 rounded-xl border border-cyan-500/30 flex flex-col items-center hover:-translate-y-2 transition duration-300">
+                        <div class="w-10 h-10 rounded-full bg-cyan-500 text-black font-bold flex items-center justify-center mb-3 text-lg">5</div>
+                        <h4 class="text-cyan-300 font-bold text-sm uppercase mb-1">Điều chỉnh</h4>
+                        <p class="text-xs text-gray-500">Đánh giá hàng tuần</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mt-16 text-sm text-gray-500 tracking-widest uppercase">
+                #CTD_Inspiring &nbsp;&nbsp; #Inspiree_DaoNguyenPhucQuang
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10 bg-[#02040a] text-center text-gray-600 text-sm">
+        <p>&copy; 2025 Shape Your Signature. All rights reserved.</p>
+    </footer>
+
+    <!-- Script to generate stars -->
+    <script>
+        const starContainer = document.getElementById('star-container');
+        const starCount = 120;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            const size = Math.random() * 2;
+            const duration = Math.random() * 3 + 3; // slower stars
+            const delay = Math.random() * 5;
+
+            star.style.left = `${x}%`;
+            star.style.top = `${y}%`;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.setProperty('--duration', `${duration}s`);
+            star.style.animationDelay = `${delay}s`;
+            
+            starContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
